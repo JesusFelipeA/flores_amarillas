@@ -1421,6 +1421,14 @@ body {
     onload = () => {
       const backgroundMusic = document.getElementById('backgroundMusic');
 
+      function startBackgroundMusic() {
+        backgroundMusic.play().catch(() => {
+        });
+      }
+
+      startBackgroundMusic();
+      document.addEventListener('pointerdown', startBackgroundMusic, { once: true });
+
       const c = setTimeout(() => {
         document.body.classList.remove("not-loaded");
         
